@@ -1,14 +1,12 @@
 FROM quay.io/centos/centos:stream9
 
-RUN yum install -y httpd git unzip
+RUN dnf install -y httpd && dnf clean all
 
 WORKDIR /var/www/html/
 
-CMD mkdir manoj
-
-RUN rm -rf /var/www/html/*
-
-RUN git clone https://github.com/startbootstrap/startbootstrap-clean-blog.git .
+RUN rm -rf * && \
+    echo "This is Manoj Gurjar" > index.html && \
+    mkdir -p /run/httpd
 
 EXPOSE 80
 
