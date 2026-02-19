@@ -5,7 +5,7 @@ RUN dnf install -y httpd && dnf clean all
 WORKDIR /var/www/html/
 
 RUN rm -rf * && \
-    echo "<center><h1>This is Manoj Gurjar<h1><center>" > index.html && \
+    echo "This is Manoj" > index.html && \
     mkdir -p /run/httpd
 
 EXPOSE 80
