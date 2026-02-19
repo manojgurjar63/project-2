@@ -1,13 +1,14 @@
 FROM quay.io/centos/centos:stream9
 
-RUN yum install -y httpd git unzip
+RUN dnf install -y httpd && dnf clean all
 
 WORKDIR /var/www/html/
 
-RUN rm -rf /var/www/html/*
-
-RUN wget https://www.toocss.com/free-responsive-html-css-templates/
+RUN rm -rf * && \
+    echo "This is Manoj Gurjar" > index.html && \
+    mkdir -p /run/httpd
 
 EXPOSE 80
 
 CMD ["/usr/sbin/httpd", "-DFOREGROUND"]
+
