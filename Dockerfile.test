@@ -6,7 +6,7 @@ WORKDIR /var/www/html/
 
 RUN rm -rf /var/www/html/*
 
-RUN git clone https://github.com/startbootstrap/startbootstrap-clean-blog.git .
+RUN wget https://www.toocss.com/free-responsive-html-css-templates/
 
 EXPOSE 80
 
